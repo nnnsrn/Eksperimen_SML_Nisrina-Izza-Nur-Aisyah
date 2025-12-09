@@ -59,9 +59,9 @@ def save_data(df, output_path):
 
 if __name__ == "__main__":
     print("🚀 Memulai Otomatisasi Preprocessing...")
-    input_csv = "drug dataset_raw/real_drug_dataset.csv"
+    input_csv = "drug_dataset_raw/real_drug_dataset.csv"
     
-    output_csv = "preprocessing/drug dataset_preprocessing/train_clean.csv"
+    output_csv = "preprocessing/drug_dataset_preprocessing/train_clean.csv"
 
     df_raw = get_data(input_csv)
     
