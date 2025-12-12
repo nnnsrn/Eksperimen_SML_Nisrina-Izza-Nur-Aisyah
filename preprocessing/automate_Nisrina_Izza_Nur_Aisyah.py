@@ -15,9 +15,10 @@ def preprocessing_data(df):
     df_clean = df.copy()
 
     # 1. Target Engineering
-    # Ubah Improvement_Score jadi Binary (1: Efektif, 0: Tidak Efektif)
     if 'Improvement_Score' in df_clean.columns:
-        df_clean['Effectiveness'] = df_clean['Improvement_Score'].apply(lambda x: 1 if x > 50 else 0)
+    threshold = df_clean['Improvement_Score'].median()
+    print(f"Threshold Median yang digunakan: {threshold}")
+    df_clean['Effectiveness'] = df_clean['Improvement_Score'].apply(lambda x: 1 if x > threshold else 0)
 
     # 2. Feature Selection
     cols_to_drop = ['Patient_ID', 'Drug_Name', 'Improvement_Score']
